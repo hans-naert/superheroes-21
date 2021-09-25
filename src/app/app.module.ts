@@ -6,14 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-// Import toolbar and card modules
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from '@angular/material/card';
-
-
-/* Considering it is a getting started sample, importing noop animation
-module, disabling animations. */
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { SuperheroesMaterialDesignModule } from './superheroes-material-design/superheroes-material-design.module';
 
 
 @NgModule({
@@ -23,10 +16,7 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatCardModule,
-    NoopAnimationsModule
+    SuperheroesMaterialDesignModule
   ],
   providers: [],
   bootstrap: [AppComponent]
