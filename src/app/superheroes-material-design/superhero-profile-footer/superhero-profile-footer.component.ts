@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import SuperheroText from '../utilities/superhero-text';
 
 @Component({
   selector: 'superhero-profile-footer',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuperheroProfileFooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private superheroText: SuperheroText) { }
 
   ngOnInit(): void {
+    console.log(this.superheroText);
   }
 
 }
