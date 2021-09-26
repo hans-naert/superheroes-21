@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { SuperheroProfileComponent } from "./superhero-profile/superhero-profile.component";
 import { SuperheroToolbarComponent } from "./superhero-toolbar/superhero-toolbar.component";
 import { SuperheroProfileFooterComponent } from './superhero-profile-footer/superhero-profile-footer.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [SuperheroProfileComponent,
@@ -16,7 +17,8 @@ import { SuperheroProfileFooterComponent } from './superhero-profile-footer/supe
   imports: [
     CommonModule,
     MatCardModule,
-    MatToolbarModule
+    MatToolbarModule,
+    FormsModule
   ],
   exports: [
     SuperheroProfileComponent,

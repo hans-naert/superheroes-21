@@ -5,7 +5,7 @@
   <h2 [ngStyle]="styles">{{name}}</h2>
   <!-- Shows sum of two numbers, evaluated -->
   <div class="apply-margin">
-    <input type="text" (input)="click_input($event);" />
+    <input type="text" [(ngModel)]="superheroName" />
     |
     <strong [innerText]="superheroName"></strong>
     </div>
