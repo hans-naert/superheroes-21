@@ -5,13 +5,29 @@ import SuperheroText from '../utilities/superhero-text';
   selector: 'superhero-profile',
   templateUrl: './superhero-profile.component.html',
   styleUrls: ['./superhero-profile.component.css'],
-  providers: [ SuperheroText ] //viewProviders not working as not available to projected content
+  providers: [SuperheroText] //viewProviders not working as not available to projected content
 })
 export class SuperheroProfileComponent implements OnInit {
 
-  @Input() name="Vives";
-  @Input() firstAppearance="2021";
-  @Input("lives-in") livesIn="Europe";
+  @Input() name = "Vives";
+  @Input("lives-in") livesIn = "Europe";
+
+
+  // create a private field
+  private _firstAppearance: number = 2021;
+  // use a public setter
+  @Input()
+  set firstAppearance(val: number) {
+    if (val > 1950) {
+      this._firstAppearance = val;
+    } else {
+      console.error("Superhero is too old");
+    }
+  }
+  // getter for the use of template.
+  get firstAppearance() {
+    return this._firstAppearance;
+  }
 
   constructor() { }
 
