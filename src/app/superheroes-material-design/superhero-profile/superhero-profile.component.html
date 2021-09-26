@@ -4,6 +4,12 @@
   <!-- Show value of a variable -->
   <h2 [ngStyle]="styles">{{name}}</h2>
   <!-- Shows sum of two numbers, evaluated -->
+  <div class="apply-margin">
+    <input type="text" (input)="click_input($event);" />
+    |
+    <strong [innerText]="superheroName"></strong>
+    </div>
+
   <strong> {{ 1243 + 232 }} </strong>
   <!-- Calls a function and shows the returned value -->
   <div [ngClass]="cssClasses"> First

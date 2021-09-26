@@ -16,6 +16,8 @@ export class SuperheroProfileComponent implements OnInit {
     'apply-margin': true
     }
 
+    superheroName : string ="";
+
   fontSize="30";
   heroWeight:number=181;
 
@@ -64,6 +66,11 @@ export class SuperheroProfileComponent implements OnInit {
       firstAppearance: this._firstAppearance
     };
     this.flyWithSuperhero.emit(hero);
+  }
+
+  click_input(event: any)
+  {
+    this.superheroName=event.target.value
   }
 
 }
