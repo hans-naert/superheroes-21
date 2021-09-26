@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import SuperheroText from '../utilities/superhero-text';
 
 @Component({
@@ -28,6 +28,10 @@ export class SuperheroProfileComponent implements OnInit {
   get firstAppearance() {
     return this._firstAppearance;
   }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+    }
 
   constructor() { }
 
