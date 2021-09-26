@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import SuperheroText from '../utilities/superhero-text';
 
 @Component({
@@ -8,6 +8,10 @@ import SuperheroText from '../utilities/superhero-text';
   providers: [ SuperheroText ] //viewProviders not working as not available to projected content
 })
 export class SuperheroProfileComponent implements OnInit {
+
+  @Input() name="Vives";
+  @Input() firstAppearance="2021";
+  @Input("lives-in") livesIn="Europe";
 
   constructor() { }
 
