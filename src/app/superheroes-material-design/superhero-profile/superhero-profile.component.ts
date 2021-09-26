@@ -10,9 +10,11 @@ import SuperheroText from '../utilities/superhero-text';
 })
 export class SuperheroProfileComponent implements OnInit {
 
-  showBorder: boolean = true;
-  showBgColor: boolean = false;
-  applyMargin: boolean = true;
+  cssClasses: {[key: string]: boolean} = {
+    'show-border': true,
+    'show-bg-color': true,
+    'apply-margin': true
+    }
 
   @Input() name = "Vives";
   @Input("lives-in") livesIn = "Europe";

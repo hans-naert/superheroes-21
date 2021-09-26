@@ -6,7 +6,7 @@
   <!-- Shows sum of two numbers, evaluated -->
   <strong> {{ 1243 + 232 }} </strong>
   <!-- Calls a function and shows the returned value -->
-  <div [class.show-bg-color]="showBgColor" [class.show-border]="showBorder" [class.apply-margin]="applyMargin"> First
+  <div [ngClass]="cssClasses"> First
     appeared in {{firstAppearance}} </div>
   <button (click)="returnSuperheroData()"> Fly with a Superhero</button>
   <ng-content></ng-content>
