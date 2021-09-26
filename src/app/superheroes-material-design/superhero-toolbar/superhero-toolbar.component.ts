@@ -13,3 +13,10 @@ export class SuperheroToolbarComponent implements OnInit {
   }
 
 }
+
+// Create a type representing superhero
+export type Superhero = {
+  name: string;
+  firstAppearance: number;
+  livesIn: string;
+  }

@@ -1,5 +1,6 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, Output, SimpleChanges, EventEmitter } from '@angular/core';
 import SuperheroText from '../utilities/superhero-text';
+
 
 @Component({
   selector: 'superhero-profile',
@@ -29,6 +30,8 @@ export class SuperheroProfileComponent implements OnInit {
     return this._firstAppearance;
   }
 
+  @Output() flyWithSuperhero = new EventEmitter<Superhero>();
+
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
     }
@@ -38,4 +41,21 @@ export class SuperheroProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  returnSuperheroData(){
+    let hero = {
+    name: this.name,
+    livesIn: this.livesIn,
+    firstAppearance: this._firstAppearance
+    };
+    this.flyWithSuperhero.emit(hero);
+    }
+
 }
+
+// Create a type representing superhero
+export type Superhero = {
+  name: string;
+  firstAppearance: number;
+  livesIn: string;
+  }
+
