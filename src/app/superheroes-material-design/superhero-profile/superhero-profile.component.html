@@ -1,12 +1,13 @@
 <mat-card>
-   <div>Superhero profile.</div>
-   <!-- Superhero details go here -->
-   <!-- Show value of a variable -->
-    <h2>{{name}}</h2>
-    <!-- Shows sum of two numbers, evaluated -->
-    <strong> {{ 1243 + 232 }} </strong>
-    <!-- Calls a function and shows the returned value -->
-    <div> First appeared in {{firstAppearance}} </div>
-   <button (click)="returnSuperheroData()"> Fly with a Superhero</button>
-   <ng-content></ng-content>
+  <div>Superhero profile.</div>
+  <!-- Superhero details go here -->
+  <!-- Show value of a variable -->
+  <h2>{{name}}</h2>
+  <!-- Shows sum of two numbers, evaluated -->
+  <strong> {{ 1243 + 232 }} </strong>
+  <!-- Calls a function and shows the returned value -->
+  <div [class.show-bg-color]="showBgColor" [class.show-border]="showBorder" [class.apply-margin]="applyMargin"> First
+    appeared in {{firstAppearance}} </div>
+  <button (click)="returnSuperheroData()"> Fly with a Superhero</button>
+  <ng-content></ng-content>
 </mat-card>

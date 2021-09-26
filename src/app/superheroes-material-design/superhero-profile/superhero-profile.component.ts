@@ -10,6 +10,10 @@ import SuperheroText from '../utilities/superhero-text';
 })
 export class SuperheroProfileComponent implements OnInit {
 
+  showBorder: boolean = true;
+  showBgColor: boolean = false;
+  applyMargin: boolean = true;
+
   @Input() name = "Vives";
   @Input("lives-in") livesIn = "Europe";
 
@@ -34,21 +38,21 @@ export class SuperheroProfileComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
-    }
+  }
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  returnSuperheroData(){
+  returnSuperheroData() {
     let hero = {
-    name: this.name,
-    livesIn: this.livesIn,
-    firstAppearance: this._firstAppearance
+      name: this.name,
+      livesIn: this.livesIn,
+      firstAppearance: this._firstAppearance
     };
     this.flyWithSuperhero.emit(hero);
-    }
+  }
 
 }
 
@@ -57,5 +61,5 @@ export type Superhero = {
   name: string;
   firstAppearance: number;
   livesIn: string;
-  }
+}
 

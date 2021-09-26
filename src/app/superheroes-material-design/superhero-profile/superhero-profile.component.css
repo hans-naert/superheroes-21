@@ -1,0 +1,18 @@
+.show-border
+{
+  border: black;
+  border-style: dashed;
+}
+
+.show-bg-color
+{
+  background: red;
+}
+
+.apply-margin
+{
+  margin: 10px;
+}
+
+
+
