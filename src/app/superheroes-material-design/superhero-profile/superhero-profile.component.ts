@@ -16,8 +16,15 @@ export class SuperheroProfileComponent implements OnInit {
     'apply-margin': true
     }
 
-  fontSize:number=30;
+  fontSize="30";
   heroWeight:number=181;
+
+  styles: {[key: string]: string} = {
+    'font-size.pt': this.fontSize,
+    'color': this.heroWeight > 180 ? 'red': 'black',
+    'font-weight': this.heroWeight > 180 ? 'bold': 'normal',
+    'text-decoration': this.heroWeight > 180 ? 'underline': 'none'
+    }
 
   @Input() name = "Vives";
   @Input("lives-in") livesIn = "Europe";

@@ -2,8 +2,7 @@
   <div>Superhero profile.</div>
   <!-- Superhero details go here -->
   <!-- Show value of a variable -->
-  <h2 [style.font-size.pt]="fontSize" [style.color]="heroWeight > 180 ?
-    'red' : 'black'">{{name}}</h2>
+  <h2 [ngStyle]="styles">{{name}}</h2>
   <!-- Shows sum of two numbers, evaluated -->
   <strong> {{ 1243 + 232 }} </strong>
   <!-- Calls a function and shows the returned value -->
