@@ -1,5 +1,8 @@
 <mat-card>
   <div>Superhero profile.</div>
+  <hr />
+  <div *ngTemplateOutlet="heroContactDetails"></div>
+  <hr />
   <!-- Superhero details go here -->
   <!-- Show value of a variable -->
   <h2 [ngStyle]="styles">{{name}}</h2>
@@ -8,7 +11,7 @@
     <input type="text" [(ngModel)]="superheroName" />
     |
     <strong [innerText]="superheroName"></strong>
-    </div>
+  </div>
 
   <strong> {{ 1243 + 232 }} </strong>
   <!-- Calls a function and shows the returned value -->
@@ -17,3 +20,9 @@
   <button (click)="returnSuperheroData()"> Fly with a Superhero</button>
   <ng-content></ng-content>
 </mat-card>
+
+<ng-template #heroContactDetails>
+  <h3>Contact Details</h3>
+  Email: ChhottaBheem@angularsample.com
+  Meet him in Dholakpur Villege in India.
+</ng-template>
