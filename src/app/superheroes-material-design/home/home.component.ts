@@ -7,12 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  superheroes =[
+  superheroes = [
     "Spiderman",
     "Chhota Bheem",
     "Superman",
     "Batman"
-    ]
+  ]
+
+  isItalic = false;
+  isBold = false;
+  isStrikeThrough = false;
+  get titleStyle() {
+    return {
+      'text-decoration': this.isStrikeThrough ? 'line-through' : 'none',
+      'font-weight': this.isBold ? 'bold' : 'normal',
+      'font-style': this.isItalic ? 'italic' : 'normal',
+      'font-size': '24px'
+    };
+  }
 
   constructor() { }
 

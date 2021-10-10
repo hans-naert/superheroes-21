@@ -6,3 +6,17 @@ last as isLast; even as isEven; odd as isOdd">
   <ng-template [ngIf]="isEven">(even)</ng-template>
   <ng-template [ngIf]="isOdd">(odd)</ng-template>
 </div>
+
+<div>
+  <input class="specialInput" type="checkbox" [(ngModel)]="isBold">
+  Bold
+</div>
+<div>
+  <input class="specialInput" type="checkbox" [(ngModel)]="isItalic">
+  Italic
+</div>
+<div>
+  <input class="specialInput" type="checkbox" [(ngModel)]="isStrikeThrough">
+  Strike-through
+</div>
+<div [ngStyle]="titleStyle">Chhotta Bheem</div>

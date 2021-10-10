@@ -11,6 +11,8 @@ import { SuperheroProfileFooterComponent } from './superhero-profile-footer/supe
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 
+import { SuperheroDataService } from 'src/app/data-services/superhero-data.service';
+
 @NgModule({
   declarations: [SuperheroProfileComponent,
     SuperheroToolbarComponent,
@@ -22,6 +24,7 @@ import { HomeComponent } from './home/home.component';
     MatToolbarModule,
     FormsModule
   ],
+  providers:[SuperheroDataService],
   exports: [
     SuperheroProfileComponent,
     SuperheroToolbarComponent,

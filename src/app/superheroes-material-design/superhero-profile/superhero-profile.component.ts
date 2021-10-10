@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, SimpleChanges, EventEmitter } from '@angular/core';
 import SuperheroText from '../utilities/superhero-text';
+import { SuperheroDataService } from 'src/app/data-services/superhero-data.service';
 
 
 @Component({
@@ -57,9 +58,10 @@ export class SuperheroProfileComponent implements OnInit {
     console.log(changes);
   }
 
-  constructor() { }
+  constructor(private dataService: SuperheroDataService) { }
 
   ngOnInit(): void {
+    this.dataService.getSuperheroes().subscribe( data => console.log(data));
   }
 
   returnSuperheroData() {
