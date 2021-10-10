@@ -18,6 +18,8 @@ export class SuperheroProfileComponent implements OnInit {
 
     superheroName : string ="";
 
+    showContacts=false;
+
   fontSize="30";
   heroWeight:number=181;
 

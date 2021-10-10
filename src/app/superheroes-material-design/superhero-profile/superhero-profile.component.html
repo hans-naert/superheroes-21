@@ -1,7 +1,9 @@
 <mat-card>
   <div>Superhero profile.</div>
   <hr />
-  <div *ngTemplateOutlet="heroContactDetails"></div>
+  <div *ngIf="showContacts; then contactDetails else hiddenText"></div>
+  <input class="specialInput" type="checkbox" [(ngModel)]="showContacts">
+  <!--div *ngTemplateOutlet="heroContactDetails"></div-->
   <hr />
   <!-- Superhero details go here -->
   <!-- Show value of a variable -->
@@ -21,8 +23,13 @@
   <ng-content></ng-content>
 </mat-card>
 
-<ng-template #heroContactDetails>
+<ng-template #contactDetails>
   <h3>Contact Details</h3>
   Email: ChhottaBheem@angularsample.com
   Meet him in Dholakpur Villege in India.
+</ng-template>
+
+<ng-template #hiddenText>
+  <hr />
+  *Contact information is hidden.
 </ng-template>
