@@ -1,6 +1,18 @@
 <mat-card>
   <div>Superhero profile.</div>
   <hr />
+
+  Provide a birth place: <input type="text" [(ngModel)]="birthplace">
+  <div [ngSwitch]="birthplace">
+    <span *ngSwitchCase="'Dholakpur'">Earthling</span>
+    <span *ngSwitchCase="'Kryptonopolis'">Alien</span>
+    <span *ngSwitchCase="'Asgard'">Alien</span>
+    <span *ngSwitchCase="'New York'">Earthling</span>
+    <span *ngSwitchCase="'Gotham'">Earthling</span>
+    <span *ngSwitchCase="'Dholakpur'">Earthling</span>
+    <span *ngSwitchDefault>Provide a known birthplace</span>
+  </div>
+
   <ng-container *ngIf="showContacts; then contactDetails else hiddenText"></ng-container>
   <input class="specialInput" type="checkbox" [(ngModel)]="showContacts">
   <!--div *ngTemplateOutlet="heroContactDetails"></div-->
