@@ -1,0 +1,73 @@
+<div>
+  <mat-form-field appearance="standard">
+    <input type="text" matInput placeholder="A name to be remembered" />
+  </mat-form-field>
+</div>
+<mat-form-field floatLabel="auto" appearance="standard">
+  <mat-label>Superhero Name</mat-label>
+  <input type="text" required matInput placeholder="A name to be remembered" />
+</mat-form-field>
+<div>
+  <!-- Appearance: Outline -->
+  <mat-form-field appearance="outline">
+    <mat-label>Superhero Name</mat-label>
+    <input type="text" matInput required placeholder="A name to be remembered" />
+    <mat-hint>Enter name</mat-hint>
+  </mat-form-field>
+</div>
+<mat-form-field appearance="outline">
+  <mat-label>Powers</mat-label>
+  <textarea rows="6" matInput></textarea>
+  <mat-hint>Explain superhero powers</mat-hint>
+</mat-form-field>
+<div>
+  <!-- Appearance: Outline -->
+  <mat-form-field appearance="outline">
+    <mat-label>Country</mat-label>
+    <mat-select>
+      <mat-option>India</mat-option>
+      <mat-option>United States</mat-option>
+      <mat-option>Outer space</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div>
+  <!-- Appearance: Outline -->
+  <mat-form-field appearance="outline">
+    <mat-label>Country</mat-label>
+    <mat-select [(value)]="country">
+      <mat-option>None</mat-option>
+      <mat-option value="in">India</mat-option>
+      <mat-option value="us">United States</mat-option>
+      <mat-option value="os">Outer Space</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <strong>Superhero comes from " {{country}} "</strong>
+</div>
+
+<!--div>
+  <mat-form-field appearance="standard">
+    <mat-label>Likes to eat</mat-label>
+    <mat-chip-list #favFood>
+      <mat-chip>
+        Laddu
+      </mat-chip>
+      <mat-chip>
+        Cheeseburger
+      </mat-chip>
+    </mat-chip-list>
+    <input [matChipInputFor]="favFood" />
+  </mat-form-field>
+</div-->
+
+<mat-form-field appearance="standard">
+  <mat-label>Likes to eat</mat-label>
+  <mat-chip-list #favFood>
+    <mat-chip *ngFor="let item of items" (removed)="removeHandler(item)">
+      {{item}}
+      <mat-icon matChipRemove>cancel</mat-icon>
+    </mat-chip>
+  </mat-chip-list>
+  <input [matChipInputFor]="favFood" (matChipInputTokenEnd)="addItem($event)" matChipInputAddOnBlur />
+</mat-form-field>
+
