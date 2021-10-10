@@ -1,7 +1,7 @@
 <mat-card>
   <div>Superhero profile.</div>
   <hr />
-  <div *ngIf="showContacts; then contactDetails else hiddenText"></div>
+  <ng-container *ngIf="showContacts; then contactDetails else hiddenText"></ng-container>
   <input class="specialInput" type="checkbox" [(ngModel)]="showContacts">
   <!--div *ngTemplateOutlet="heroContactDetails"></div-->
   <hr />
