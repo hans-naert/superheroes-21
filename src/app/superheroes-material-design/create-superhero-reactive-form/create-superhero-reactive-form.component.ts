@@ -10,6 +10,11 @@ import * as moment from 'moment';
 })
 export class CreateSuperheroReactiveFormComponent implements OnInit {
 
+
+  minRating:number = 1;
+  maxRating:number = 10;
+  rating: number=8;
+
   // Create an instance of FormControl using the FormBuilder
   name: FormControl = this.fb.control("", [Validators.required]);
 
@@ -25,7 +30,8 @@ export class CreateSuperheroReactiveFormComponent implements OnInit {
       details: ['',[ Validators.maxLength(100), Validators.minLength(5)] ],
       powers: '',
       country: '',
-      dob: new Date('05/20/2019')
+      dob: new Date('05/20/2019'),
+      rating: 5,
     });
 
     this.superheroFormGroup
