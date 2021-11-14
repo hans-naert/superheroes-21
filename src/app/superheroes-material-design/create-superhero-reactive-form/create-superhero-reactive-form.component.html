@@ -32,10 +32,21 @@
   <strong>
     Pristine: {{ email?.pristine }}. Dirty: {{ email?.dirty }}
   </strong>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Date of birth</mat-label>
+      <input matInput formControlName="dob" [matDatepicker]="dateOfBirth" />
+      <!--mat-datepicker #dateOfBirth [opened]="true"></mat-datepicker-->
+      <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+      <mat-datepicker startView="multi-year" #dateOfBirth></mat-datepicker>
+    </mat-form-field>
+  </div>
+
   <div>
     <mat-form-field appearance="outline">
       <mat-label>Powers</mat-label>
-      <textarea name="details" formControlName="details" TextareaAutosize matInput></textarea>
+      <textarea name="details" formControlName="details" cdkTextareaAutosize matInput></textarea>
       <mat-hint>Explain superhero powers</mat-hint>
     </mat-form-field>
   </div>

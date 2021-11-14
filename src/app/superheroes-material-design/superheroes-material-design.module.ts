@@ -8,8 +8,10 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatChipsModule } from '@angular/material/chips';
-import { MatIconModule } from '@angular/material/icon'
-import { MatButtonModule } from '@angular/material/button'
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { SuperheroProfileComponent } from "./superhero-profile/superhero-profile.component";
 import { SuperheroToolbarComponent } from "./superhero-toolbar/superhero-toolbar.component";
@@ -41,7 +43,9 @@ import { CreateSuperheroReactiveFormComponent } from './create-superhero-reactiv
     MatSelectModule,
     MatChipsModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers:[SuperheroDataService],
   exports: [

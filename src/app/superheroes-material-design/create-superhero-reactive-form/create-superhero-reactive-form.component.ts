@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Superhero } from '../models/superhero';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-create-superhero-reactive-form',
@@ -23,7 +24,8 @@ export class CreateSuperheroReactiveFormComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       details: ['',[ Validators.maxLength(100), Validators.minLength(5)] ],
       powers: '',
-      country: ''
+      country: '',
+      dob: new Date('05/20/2019')
     });
 
     this.superheroFormGroup
@@ -44,10 +46,11 @@ export class CreateSuperheroReactiveFormComponent implements OnInit {
   submitHandler() {
     let superhero = this.superheroFormGroup.value as Superhero;
     console.log("Superhero model object ", superhero);
+    console.log("Selected date value ", moment(this.superheroFormGroup.value.dob).toDate());
+
   }
 
   public get email() {
     return this.superheroFormGroup.get('email');
     }
-
 }
