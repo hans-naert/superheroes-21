@@ -13,6 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { SuperheroProfileComponent } from "./superhero-profile/superhero-profile.component";
 import { SuperheroToolbarComponent } from "./superhero-toolbar/superhero-toolbar.component";
@@ -48,6 +50,8 @@ import { CreateSuperheroReactiveFormComponent } from './create-superhero-reactiv
     MatDatepickerModule,
     MatNativeDateModule,
     MatSliderModule,
+    MatSlideToggleModule,
+    MatCheckboxModule
   ],
   providers:[SuperheroDataService],
   exports: [

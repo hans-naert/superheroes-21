@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Superhero } from '../models/superhero';
 import * as moment from 'moment';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-create-superhero-reactive-form',
@@ -11,9 +12,23 @@ import * as moment from 'moment';
 export class CreateSuperheroReactiveFormComponent implements OnInit {
 
 
-  minRating:number = 1;
-  maxRating:number = 10;
-  rating: number=8;
+  minRating: number = 1;
+  maxRating: number = 10;
+  rating: number = 8;
+
+  cities = [{
+    name: "New York",
+    selectedByDefault: true
+  }, {
+    name: "Boston",
+    selectedByDefault: false
+  }, {
+    name: "Hyderabad",
+    selectedByDefault: false
+  }, {
+    name: "Bengaluru",
+    selectedByDefault: true
+  }];
 
   // Create an instance of FormControl using the FormBuilder
   name: FormControl = this.fb.control("", [Validators.required]);
@@ -23,26 +38,40 @@ export class CreateSuperheroReactiveFormComponent implements OnInit {
 
   // Inject FormBuilder
   constructor(private fb: FormBuilder) {
-    // Create FormGroup object with FormBuilder.
-    this.superheroFormGroup = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      details: ['',[ Validators.maxLength(100), Validators.minLength(5)] ],
-      powers: '',
-      country: '',
-      dob: new Date('05/20/2019'),
-      rating: 5,
+    let j = this.cities.map(i => new FormControl(i.selectedByDefault));
+
+    this.superheroFormGroup = new FormGroup({
+      name: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      details: new FormControl('', [Validators.minLength(5), Validators.maxLength(100)]),
+      powers: new FormControl(''),
+      country: new FormControl(''),
+      dob: new FormControl(new Date('05/20/2019')),
+      rating: new FormControl(2),
+      jurisdiction: new FormArray(j)
     });
 
+  }
+
+  /*get jurisdiction(): FormArray {
+    return this.superheroFormGroup.get('jurisdiction') as FormArray;
+}*/
+
+  ngOnInit(): void {
     this.superheroFormGroup
       .valueChanges
       .subscribe(item =>
         console.log("Stream as form changes, ", item as Superhero));
-  }
-
-  ngOnInit(): void {
     this.name.valueChanges.subscribe(result => console.log(result));
     setTimeout(() => this.name.setValue("Value set on timeout"), 3000);
+
+    this.superheroFormGroup
+      .valueChanges
+      .subscribe(data => {
+        data.jurisdiction.map((value:boolean, it: number) => console.log(this.cities[it].
+          name, value));
+      });
+
   }
 
   changeHandler() {
@@ -58,5 +87,9 @@ export class CreateSuperheroReactiveFormComponent implements OnInit {
 
   public get email() {
     return this.superheroFormGroup.get('email');
-    }
+  }
+
+  onToggleChange(event: MatSlideToggleChange) {
+    console.log(event.checked);
+  }
 }

@@ -7,6 +7,11 @@
 
 
 <form #superheroForm="ngForm" [formGroup]="superheroFormGroup" (submit)="submitHandler()">
+
+  <mat-slide-toggle checked="true" (change)="onToggleChange($event)" labelPosition="before" disableRipple="true">
+    Add a cape to the hero?
+  </mat-slide-toggle>
+
   <div>
     <!-- Appearance: Outline -->
     <mat-form-field appearance="outline">
@@ -64,8 +69,19 @@
     </mat-form-field>
   </div>
   <div>
+
+    <div>
+      <strong>Select Superhero's jurisdiction</strong>
+    </div>
+    <div formArrayName="jurisdiction">
+      <div *ngFor="let city of cities; let i=index;" >
+        <mat-slide-toggle [formControlName]="i">
+          {{cities[i].name}}
+        </mat-slide-toggle>
+      </div>
+    </div>
     <!-- Appearance: Outline -->
-    <mat-form-field appearance="outline">
+    <!--mat-form-field appearance="outline">
       <mat-label>Country</mat-label>
       <mat-select formControlName="country" placeholder="select country">
         <mat-option>None</mat-option>
@@ -77,7 +93,7 @@
           <mat-option value="os">Asgard</mat-option>
         </mat-optgroup>
       </mat-select>
-    </mat-form-field>
+    </mat-form-field-->
     <!-- <strong>Superhero comes from " {{country}} "</strong> -->
   </div>
   <div>
