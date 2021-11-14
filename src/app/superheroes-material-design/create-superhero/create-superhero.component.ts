@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Superhero } from '../models/superhero';
 
 @Component({
   selector: 'app-create-superhero',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateSuperheroComponent implements OnInit {
   country = ""
-
+  superhero: Superhero;
   items: Array<string> = ["Laddu", "Cheeseburger", "Pizza"];
   addItem(event: any) {
     this.items.push(event.value);
@@ -16,9 +17,15 @@ export class CreateSuperheroComponent implements OnInit {
     this.items.splice(this.items.indexOf(item), 1);
   }
 
-  constructor() { }
+  constructor() {
+    this.superhero = new Superhero();
+  }
 
   ngOnInit(): void {
   }
+
+  get model(){
+    return JSON.stringify(this.superhero);
+    }
 
 }
