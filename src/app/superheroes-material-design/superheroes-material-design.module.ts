@@ -14,11 +14,12 @@ import { MatButtonModule } from '@angular/material/button'
 import { SuperheroProfileComponent } from "./superhero-profile/superhero-profile.component";
 import { SuperheroToolbarComponent } from "./superhero-toolbar/superhero-toolbar.component";
 import { SuperheroProfileFooterComponent } from './superhero-profile-footer/superhero-profile-footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 
 import { SuperheroDataService } from 'src/app/data-services/superhero-data.service';
 import { CreateSuperheroComponent } from './create-superhero/create-superhero.component';
+import { CreateSuperheroReactiveFormComponent } from './create-superhero-reactive-form/create-superhero-reactive-form.component';
 
 @NgModule({
   declarations: [SuperheroProfileComponent,
@@ -26,6 +27,7 @@ import { CreateSuperheroComponent } from './create-superhero/create-superhero.co
     SuperheroProfileFooterComponent,
     HomeComponent,
     CreateSuperheroComponent,
+    CreateSuperheroReactiveFormComponent,
     ],
   imports: [
     BrowserAnimationsModule,
@@ -33,6 +35,7 @@ import { CreateSuperheroComponent } from './create-superhero/create-superhero.co
     MatCardModule,
     MatToolbarModule,
     FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
@@ -46,7 +49,8 @@ import { CreateSuperheroComponent } from './create-superhero/create-superhero.co
     SuperheroToolbarComponent,
     SuperheroProfileFooterComponent,
     HomeComponent,
-    CreateSuperheroComponent
+    CreateSuperheroComponent,
+    CreateSuperheroReactiveFormComponent
     ]
 })
 export class SuperheroesMaterialDesignModule { }
