@@ -25,6 +25,7 @@ import { HomeComponent } from './home/home.component';
 import { SuperheroDataService } from 'src/app/data-services/superhero-data.service';
 import { CreateSuperheroComponent } from './create-superhero/create-superhero.component';
 import { CreateSuperheroReactiveFormComponent } from './create-superhero-reactive-form/create-superhero-reactive-form.component';
+import { SuperheroGridListComponent } from './superhero-grid-list/superhero-grid-list.component';
 
 @NgModule({
   declarations: [SuperheroProfileComponent,
@@ -33,6 +34,7 @@ import { CreateSuperheroReactiveFormComponent } from './create-superhero-reactiv
     HomeComponent,
     CreateSuperheroComponent,
     CreateSuperheroReactiveFormComponent,
+    SuperheroGridListComponent,
     ],
   imports: [
     BrowserAnimationsModule,

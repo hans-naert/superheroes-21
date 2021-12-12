@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { SuperheroesMaterialDesignModule } from './superheroes-material-design/superheroes-material-design.module';
+import { AppHttpCallsModule } from './app-http-calls/app-http-calls.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { SuperheroesMaterialDesignModule } from './superheroes-material-design/s
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SuperheroesMaterialDesignModule
+    SuperheroesMaterialDesignModule,
+    AppHttpCallsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
