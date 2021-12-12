@@ -12,7 +12,7 @@ export class SuperheroDataService {
   getHeroes() {
     let heroes: Observable<any> = this.httpClient.get(`${URL_PREFIX}/heroes`);
     heroes.subscribe(
-      (data) => {
+      {next :(data) => {
         console.log(data.map((hero: any) => ({
           "name": hero.name || "",
           "email": hero.email || "",
@@ -23,8 +23,8 @@ export class SuperheroDataService {
           "favFood": hero.favFood || []
         })))
       },
-      () => ({})/** Error handling callback */,
-      () => ({})/** Done with the observable */,
-    );;
+      error: () => ({})/** Error handling callback */,
+      complete: () => ({})/** Done with the observable */,
+    })
   }
 }
