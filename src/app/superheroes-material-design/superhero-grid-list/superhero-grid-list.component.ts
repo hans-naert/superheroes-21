@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { SuperheroDataService } from 'src/app/app-http-calls/superhero-data.service';
 import { Superhero } from '../models/superhero';
 
@@ -12,12 +13,10 @@ export class SuperheroGridListComponent implements OnInit {
 
   constructor(private heroService: SuperheroDataService) { }
 
-  heroes: Superhero[] = [];
+  heroes: Observable<Array<Superhero>> | undefined;
 
   ngOnInit(): void {
-    this.heroService.getHeroes().subscribe(
-      {next: data => this.heroes=data}
-    )
+    this.heroes=this.heroService.getHeroes();
   }
 
 }
